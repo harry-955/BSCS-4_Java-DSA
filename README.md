@@ -1,6 +1,11 @@
+## Learn Basic Data Structures in JAVA
+<br>
+You can get basic knowledge of array, queue, linked list, hashset, binary trees and graph etc.
+<br> Some practice questions are also attached in order to understand better
+
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code. Skip it if you are using any other IDE. Source files are in src folder, you can simply go there and explore
 
 ## Folder Structure
 
