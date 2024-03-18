@@ -1,6 +1,6 @@
 ## Learn Basic Data Structures in JAVA
 <br>
-You can get basic knowledge of array, queue, linked list, hashset, binary trees and graph etc.
+You can get basic knowledge of array, queue, linked list, hashset, binary trees and graphs etc.
 <br> Some practice questions are also attached in order to understand better
 
 ## Getting Started
