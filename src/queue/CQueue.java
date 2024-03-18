@@ -30,15 +30,17 @@ public class CQueue {
     if ((f == 0 && r == size - 1) || r + 1 == f) {
       System.out.println("Cannot Insert, Queue is Full :( ");
     } else {
-      if (f == -1) {
+      if (f == -1) { // for 1st insertion only
         f = 0;
       }
-      if (r == size - 1) {
-        r = -1;
-      }
-      r += 1;
+      // if r has reached end but f != 0 then move r to start
+      // if (r == size - 1) {
+      // r = -1;
+      // }
+      // r += 1;
+      // upper condition can be replaced by following one
+      r = (r + 1) % size;
       elements[r] = item;
-
       System.out.println("Insert Successful :) \n");
     }
   }
@@ -52,10 +54,16 @@ public class CQueue {
       String item = elements[f];
       elements[f] = " "; // to show that element has been removed
       if (f == r) {
-        f = r = -1; // query: if 1 insert 1 del; but if we don't do this, queue empty condition is not valid
+        f = r = -1; // query: if 1 insert 1 del; but if we don't do this, queue empty condition is
+                    // not valid
       } else {
-        if (f == size - 1) f = -1;
-        f += 1; // normal situation, always implemented on delete
+
+        // if f has reached end but r is not there then move r to start
+        // if (f == size - 1) f = -1;
+        // f += 1; // normal situation, always implemented on delete
+
+        // upper condition can be replaced by following one
+        f = (f + 1) % size; // suppose currently f = size-1 => (f+1) % size  = size % size = 0 (Start Index)
       }
       return item;
     }
@@ -68,48 +76,47 @@ public class CQueue {
     } else {
       System.out.println("Front : " + f + "\tRear : " + r);
       System.out.println("Index   : Item");
-      //   if (f <= r) {
-      //       // for (int i = f; i <= r; i++) {
-      //       if (f == r) {
-      //         System.out.println(
-      //           i + "\t: " + elements[i] + "\t(Front) , " + "(Rear)"
-      //         );
-      //       } else if (i == f) {
-      //         System.out.println(i + "\t: " + elements[i] + "\t(Front)");
-      //       } else if (i == r) {
-      //         System.out.println(i + "\t: " + elements[i] + "\t(Rear)");
-      //       } else {
-      //         System.out.println(i + "\t: " + elements[i]);
-      //       }
-      //     }
-      //   } else {
-      //     for (int i = f; i <= size - 1; i++) {
-      //       if (f == r) {
-      //         System.out.println(
-      //           i + "\t: " + elements[i] + "\t(Front) , " + "(Rear)"
-      //         );
-      //       } else if (i == f) {
-      //         System.out.println(i + "\t: " + elements[i] + "\t(Front)");
-      //       } else if (i == r) {
-      //         System.out.println(i + "\t: " + elements[i] + "\t(Rear)");
-      //       } else {
-      //         System.out.println(i + "\t: " + elements[i]);
-      //       }
-      //       if (i == size - 1) {
-      //         i = -1;
-      //       }
-      //       if (i == r) {
-      //         // System.out.println(i + "\t: " + elements[i]);
-      //         break;
-      //       }
-      //     }
-      //   }
+      // if (f <= r) {
+      // // for (int i = f; i <= r; i++) {
+      // if (f == r) {
+      // System.out.println(
+      // i + "\t: " + elements[i] + "\t(Front) , " + "(Rear)"
+      // );
+      // } else if (i == f) {
+      // System.out.println(i + "\t: " + elements[i] + "\t(Front)");
+      // } else if (i == r) {
+      // System.out.println(i + "\t: " + elements[i] + "\t(Rear)");
+      // } else {
+      // System.out.println(i + "\t: " + elements[i]);
+      // }
+      // }
+      // } else {
+      // for (int i = f; i <= size - 1; i++) {
+      // if (f == r) {
+      // System.out.println(
+      // i + "\t: " + elements[i] + "\t(Front) , " + "(Rear)"
+      // );
+      // } else if (i == f) {
+      // System.out.println(i + "\t: " + elements[i] + "\t(Front)");
+      // } else if (i == r) {
+      // System.out.println(i + "\t: " + elements[i] + "\t(Rear)");
+      // } else {
+      // System.out.println(i + "\t: " + elements[i]);
+      // }
+      // if (i == size - 1) {
+      // i = -1;
+      // }
+      // if (i == r) {
+      // // System.out.println(i + "\t: " + elements[i]);
+      // break;
+      // }
+      // }
+      // }
       /* -----------------Upper 2 loops are combined below ------------- */
       for (int i = f; (f <= r) ? (i <= r) : (i <= size - 1); i++) {
         if (f == r) {
           System.out.println(
-            i + "\t: " + elements[i] + "\t(Front) , " + "(Rear)"
-          );
+              i + "\t: " + elements[i] + "\t(Front) , " + "(Rear)");
         } else if (i == f) {
           System.out.println(i + "\t: " + elements[i] + "\t(Front)");
         } else if (i == r) {
@@ -207,37 +214,40 @@ public class CQueue {
     }
   }
 }
-  
-/* ----------------New Display Method suitable for character type queue------------- */
+
+/*
+ * ----------------New Display Method suitable for character type
+ * queue-------------
+ */
 // public void newDisplay() {
-//   System.out.println("\n");
-//   for (int i = 0; i <= f; i++) {
-//     System.out.print("    ");
-//   }
-//   System.out.println("F");
-//   for (int i = 0; i <= (size * 4) + 4; i++) {
-//     System.out.print("-");
-//   }
-//   System.out.println();
-//   System.out.print("  |");
-//   for (int i = 0; i <= size - 1; i++) {
-//     if (f == -1) {
-//       break;
-//     } else {
-//       if (elements[i] == null) {
-//         System.out.print(" " + " " + " |");
-//       } else {
-//         System.out.print(" " + elements[i] + " |");
-//       }
-//     }
-//   }
-//   System.out.println();
-//   for (int i = 0; i <= (size * 4) + 4; i++) {
-//     System.out.print("-");
-//   }
-//   System.out.println();
-//   for (int i = 0; i <= r; i++) {
-//     System.out.print("    ");
-//   }
-//   System.out.println("R\n");
+// System.out.println("\n");
+// for (int i = 0; i <= f; i++) {
+// System.out.print(" ");
+// }
+// System.out.println("F");
+// for (int i = 0; i <= (size * 4) + 4; i++) {
+// System.out.print("-");
+// }
+// System.out.println();
+// System.out.print(" |");
+// for (int i = 0; i <= size - 1; i++) {
+// if (f == -1) {
+// break;
+// } else {
+// if (elements[i] == null) {
+// System.out.print(" " + " " + " |");
+// } else {
+// System.out.print(" " + elements[i] + " |");
+// }
+// }
+// }
+// System.out.println();
+// for (int i = 0; i <= (size * 4) + 4; i++) {
+// System.out.print("-");
+// }
+// System.out.println();
+// for (int i = 0; i <= r; i++) {
+// System.out.print(" ");
+// }
+// System.out.println("R\n");
 // }

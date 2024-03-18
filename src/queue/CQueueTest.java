@@ -44,7 +44,7 @@ public class CQueueTest {
           queue.printFR();
           break;
         case 5:
-          System.out.println("--------- Goodbye Harry ;) -----");
+          System.out.println("--------- Happy Coding, Goodbye Harry ;) -----");
           break;
         default:
           System.out.println("Invalid Choice >:( \n ");
