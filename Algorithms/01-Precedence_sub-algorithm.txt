@@ -1,0 +1,18 @@
+FUNCTION PRECEDENCE
+
+Input: Operator character as a string
+
+Output: Integer representing the precedence of the operator
+
+PRECEDENCE(chrar)
+1.	IF operator is '^' THEN
+    	a. RETURN 3
+	ELSE IF operator is '*' OR operator is '/' THEN
+    	a. RETURN 2
+	ELSE IF operator is '+' OR operator is '-' THEN
+    	a. RETURN 1
+	ELSE
+    	a. Print "Precedence issue"
+    	b. RETURN -1
+	ENDIF
+END OF PRECEDENCE(chrar)

@@ -63,7 +63,7 @@ class Prefix_Class_Test {
     System.out.println("Given Expression " + givenExp);
 
     Prefix_Class_Test prefix = new Prefix_Class_Test(givenExp);
-    Stack stack = new Stack(prefix.givenExp.length() / 2);
+    HStack stack = new HStack(prefix.givenExp.length() / 2);
 
     System.out.println("\nIteration : Input : Postfix Expression\n");
 

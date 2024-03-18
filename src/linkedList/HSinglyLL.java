@@ -1,4 +1,4 @@
-// File 1 - contains methods that I used realted to linked list-----------*/
+// File 1 - contains all methods that I used realted to linked list-----------*/
 package linkedList;
 
 // LinkedList is already a class in JAVA so I used another name-----------*/

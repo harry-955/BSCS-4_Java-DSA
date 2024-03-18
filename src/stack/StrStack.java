@@ -2,7 +2,7 @@ package stack;
 
 import java.util.Scanner;
 
-class StrStack extends Stack {
+class StrStack extends HStack {
 
   Scanner input = new Scanner(System.in);
 

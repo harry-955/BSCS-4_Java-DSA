@@ -2,7 +2,7 @@
  * Try-1: Using a separate class for Postfix expression which has 
  * Attributes - postfix expression 
  * Method - Operator's Precedence Checker
- * Also optimized it in Postfix_final and Postfix_2
+ * Also optimized it in Postfix_final and Postfix_2, can be check after this
  */
 
 package stack;
@@ -48,7 +48,7 @@ class Postfix_Class {
     String exp = "K+L-M*N+(O^P)*W/U/V*T+Q^J^A";
 
     Postfix_Class postfix = new Postfix_Class();
-    Stack stack = new Stack(exp.length() / 2);
+    HStack stack = new HStack(exp.length() / 2); // max operators in an expression can be half of length of exp
 
     System.out.println("\nIteration : Input : Postfix Expression\n");
 

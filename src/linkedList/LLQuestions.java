@@ -32,14 +32,15 @@ public class LLQuestions {
 
   public static boolean isPalindrome(HSinglyLL list) {
     Node head = list.getHead();
-    if (head == null || head.next == null) {
+    if (head == null || head.next == null) { // list has none or single element
       return true;
     } else {
       // find middle
-      Node middle = list.middle(head);
+      Node middle = list.middle(head); // source of middle() in HSinglyLL class
       System.out.println("Middle Value: " + middle.data);
       // Reverse the 2nd half
-      middle.next = list.iterativeReverse(middle.next);
+      middle.next = list.iterativeReverse(middle.next); // this method returns the head node of reversed list
+      System.out.print("2nd half Reversed List: ");
       list.display();
 
       // Compare 1st half / left side with 2nd half / right side
@@ -47,8 +48,8 @@ public class LLQuestions {
       Node rightNode = middle.next;
 
       while (rightNode != null) {
-        if (!leftNode.data.equals(rightNode.data)) {
-          return false;
+        if (!leftNode.data.equals(rightNode.data)) { // if values of both nodes are not equal method will return false, ! operator will make it true and inside the 'if' false will be returned
+          return false; // indicating that any one of the 1st half value != respective right half value
         }
         leftNode = leftNode.next;
         rightNode = rightNode.next;
@@ -88,7 +89,7 @@ public class LLQuestions {
      *  3. Follow the 3 steps (Also avoids extra space)
      *      Suppose list is: 1 2 2 1
      *      a.  Find Middle of linked list --> 2
-     *      b.  Reverse the list after middle --> 1 2 1 2
+     *      b.  Reverse the list after middle --> 1 2 | 1 2
      *      c.  Compare data/values of 1st half with 2nd half --> 1==1, 2==2
      */
 
@@ -98,10 +99,11 @@ public class LLQuestions {
     palList.add("1");
     palList.add("1");
     palList.add("3");
-    System.out.println("\nList to check Palindrome: ");
+    palList.add("4");
+    System.out.print("\nList to check Palindrome: ");
     palList.display();
 
-    /* isEqual() method source is in MyLinkedList.java file */
+    /* isEqual() and reverse() method source is in HSinglyLL.java file */
     if (palList.isEqual(palList.reverse())) {
       System.out.println("List is Palindrome");
     } else {
@@ -109,10 +111,12 @@ public class LLQuestions {
     }
 
     // By Method 3
+    // isPalindrome() method is in HSinglyLL and here above in the same file too
+    System.out.println("\nBy Method 2");
     if (isPalindrome(palList)) {
-      System.out.println("Yes");
+      System.out.println("Palindrome");
     } else {
-      System.out.println("NO");
+      System.out.println("Not Palindrome");
     }
   }
 }

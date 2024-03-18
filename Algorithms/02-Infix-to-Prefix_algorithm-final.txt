@@ -1,0 +1,59 @@
+FUNTION SUB-ALGORITHM TO CONVERT INPUT INFIX EXPRESSION TO PREFIX
+
+Input: Infix expression as a string
+
+Output: Prefix expression as a string
+
+PREFIX(Infix)
+
+1. Initialize Size ← (length of Infix)/2
+2. Initialize stack[Size] 	[an empty stack of size length of Infix/2 to store operators]
+3. Initalize reverseExp ← reverse of Infix
+4. Initialize Postfix ← "" 	[an empty string to store the postfix expression later]
+5. Initialize Prefix ← "" 	[an empty string to store the prefix expression later]
+6. REPEAT FOR each character 'char' in the reverseExp
+
+	[Case 1: If char is any operator]
+
+	A. IF char = '+' OR char = '-' OR char = '*' OR char = '/' OR char = '^' THEN
+		i. IF char = '^' THEN
+				a.	WHILE NOT stack.isEmpty() AND stack.peek()<> ')' AND precedence(char) = precedence(stack.peek())
+	    				a1. Postfix ← Postfix + stack.pop()
+	    			WEND
+	    		b.	stack.push(char) 	[If stack has gone empty or precedence of char is high]
+		   ELSE 
+				a.	WHILE NOT stack.isEmpty() AND stack.peek()<> ')' AND precedence(char) < precedence(stack.peek())
+	    				a1. Postfix ← Postfix + stack.pop()
+	    			WEND
+				b.	stack.push(char) 	[If stack has gone empty or precedence of char is high or equal]
+		   ENDIF	[End of Inner IF]
+	
+	[Case 2: If char is ')']
+
+    B. ELSE IF char = ')' THEN
+        	i. stack.push(char)
+
+	[Case 3: If char is (' ]
+
+    C. ELSE IF char = '(' THEN
+       		i.	WHILE stack.peek() <> ')'
+            		a. Postfix ← Postfix + stack.pop()
+            	WEND
+        	ii. stack.pop()		[Pop the close parenthesis ')' from the stack.]
+    
+    [Case 4: If char is an operand]
+    
+    D. ELSE 
+        i. Postfix ← Postfix + char
+       ENDIF	[End of Outer IF]
+    NEXT	[END OF FOR Loop]
+    
+7. REPEAT WHILE NOT stack.isEmpty()
+    	a. Postfix ← Postfix + stack.pop()
+   WEND
+8. Prefix ← Reverse of Postfix
+8. RETURN Prefix
+
+END of POSTFIX(Infix)
+
+

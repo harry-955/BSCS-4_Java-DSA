@@ -1,3 +1,7 @@
+/* Method-2: First check if incoming symbol is any operand => directly add in prefix expression
+* but if it is operator then perform stack operations accordingly
+*/
+
 package stack;
 
 import java.util.Scanner;
