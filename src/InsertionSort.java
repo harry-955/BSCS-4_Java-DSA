@@ -7,12 +7,13 @@ public class InsertionSort {
             item = array[i]; // retrieve the current item
             j = i - 1; // sorted portion starts from just behind current i
             /**
+             * shift elements of sorted portion forward to make place for current element
              * untill sorted portion has ended or item is now greater than value at current
              * index j of sorted portion
              */
             while (j >= 0 && item < array[j]) {
                 array[j + 1] = array[j]; // shift current element of sorted portion to one step forward
-                j--;
+                j--; // move pointer of sorted portion backward
             }
             array[j + 1] = item; // store the retrieved item one index up where loop terminated in sorted portion
         }
