@@ -13,9 +13,9 @@ LinkedList          Search          O(n) --> traverse all index, non contiguous 
 
 
 Properties:
-    Varibale size
-    Non Contiguous memory location
-    Made with node (data + next/poinnter)
+    - Varibale size
+    - Non Contiguous memory location
+    - Made with node (data + next/poinnter)
 
 First node --> head
 Last node --> tail
@@ -23,4 +23,6 @@ Last node --> tail
 Singular Linked List --> only move forward
 Doubly Linked List --> can move forward or backward
 Circular Linked List --> Last node points to first one
+
+
 

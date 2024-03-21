@@ -232,7 +232,7 @@ public class HSinglyLL {
       while (currNode != null) {
         try {
           Thread.sleep(150);
-          System.out.print("│ ");
+          System.out.print("│ "); // use | if this is not supported
           Thread.sleep(150);
           System.out.print(ANSI_RESET + currNode.data + ANSI_GREEN);
           Thread.sleep(150);
