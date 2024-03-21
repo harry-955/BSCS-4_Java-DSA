@@ -6,7 +6,8 @@ You can get basic knowledge of array, queue, linked list, hashset, binary trees 
 ## Getting Started
 If you are using local terminal for compilation of java files, use following commands
 - `To Compile` : javac *.java => This will compile all files of a specific package at a time
-- `To Run` : java -cp .. linkedList.ClassName  => This will run specific class file (should have main method)
+- `To Run` : java -cp .. packageName.ClassName  => This will run specific class file (should have main method)
+- `Example` : To Run MenuLL from linkedList package use ->  java -cp .. linkedList.menuLL
 
 Skip it if you are using any other IDE. Source files are in src folder, you can simply go there and explore
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code. 
