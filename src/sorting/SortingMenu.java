@@ -15,7 +15,7 @@ public class SortingMenu {
 
   public static void main(String[] args) {
     scanner = new Scanner(System.in);
-    System.out.print(BLUE + " \nEnter Size of Array: " + RESET);
+    System.out.print(BLUE + " \nEnter Size of Array (cannot be changed): " + RESET);
     int[] array = new int[scanner.nextInt()];
     fillArray(array);
     int choice = 0;
@@ -27,7 +27,7 @@ public class SortingMenu {
       System.out.println("4. Display Array");
       System.out.println("5. Updated Array");
       System.out.println("6. Exit");
-      System.out.print(BLUE + "\nFeel Free to choose: " + RESET);
+      System.out.print(YELLOW + "\nFeel Free to choose: " + RESET);
       choice = scanner.nextInt();
       switch (choice) {
         case 1:
@@ -180,7 +180,7 @@ public class SortingMenu {
 
   /* ------------To Visually diplay current values in an array------------ */
   public static void newDisplay(int[] array) {
-    System.out.println(BLUE);
+    System.out.println(YELLOW);
     try {
       System.out.print("_"); // use _ if this is not working
       for (int val : array) {
@@ -196,7 +196,7 @@ public class SortingMenu {
         Thread.sleep(200);
         System.out.print(RESET + val);
         Thread.sleep(100);
-        System.out.print(BLUE + " │");
+        System.out.print(YELLOW + " │");
       }
       System.out.print("\n¯"); // use '-' if this is not working 
       for (int val : array) {
