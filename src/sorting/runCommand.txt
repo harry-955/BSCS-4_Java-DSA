@@ -1,6 +1,3 @@
-
-
 compile > java SortingMenu
 
 run > java -cp .. sorting.SortingMenu
-
