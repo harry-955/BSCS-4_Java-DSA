@@ -1,3 +1,5 @@
-compile > java SortingMenu
+> compile : javac SortingMenu.java
+> compile : javac *.java
 
-run > java -cp .. sorting.SortingMenu
+> run : java -cp .. sorting.<ClassName>
+> Example : java -cp .. sorting.SortingMenu
