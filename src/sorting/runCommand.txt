@@ -1,5 +1,23 @@
-> compile : javac SortingMenu.java
-> compile : javac *.java
+Compile All Files
 
-> run : java -cp .. sorting.<ClassName>
-> Example : java -cp .. sorting.SortingMenu
+```bash
+  javac *.java
+```
+
+Compile Single File
+
+```bash
+  javac SortingMenu.java
+```
+
+Run
+
+```bash
+  java -cp .. sorting.<ClassName>
+```
+
+Example
+
+```bash
+  java -cp .. sorting.SortingMenu
+```
