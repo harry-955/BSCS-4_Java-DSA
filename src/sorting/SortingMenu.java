@@ -71,7 +71,7 @@ public class SortingMenu {
                     fillArray(array);
                     break;
                 case 9: // exit
-                    System.out.println("--------------Happy Coding, GoodBye Harry :) ------------");
+                    System.out.println("--------------Happy Coding, GoodBye Yousuf :) ------------");
                     break;
                 default:
                     System.out.println("Invalid Input Bruh <:( ");
@@ -193,39 +193,46 @@ public class SortingMenu {
     }
 
     /* ----------Sort Array in Ascending Order by Shell Sort--------- */
-    public static void shellSort(int[] nums) {
-        int gap, swap;
+    public static void shellSort(int[] array) {
         /**
          * If length of array is even => gap = gap / 2
          * If length of array is odd => use ceil of result after gap / 2
-         * i.e., if length = 7, gap = ceil (3.5) => gap = 4
+         * i.e., if length = 7, gap = floor (3.5) => gap = 3
          */
-        if (nums.length % 2 == 0) {
-            gap = nums.length / 2;
+        if (array.length <= 1) {
+            System.out.println("Array is already Sorted :) ");
+            return;
         } else {
-            gap = nums.length / 2 + 1;
-        }
-        int innerCount, outerCount = 1, totalItr = 1;
-        // Iterate and swap untill gap has reduced to 0
-        while (gap != 0) {
-            innerCount = 1;
-            for (int i = 0; i <= (nums.length - 1) - gap; i++) {
-                // compare each element at index i with element after gap, and swap accordingly
-                if (nums[i] > nums[i + gap]) {
-                    // swap
-                    swap = nums[i];
-                    nums[i] = nums[i + gap];
-                    nums[i + gap] = swap;
+            int gap, swap, innerCount = 0, outerCount = 0, totalCount = 0, swapCount = 0;
+            gap = array.length / 2;
+            // Iterate and swap untill gap has reduced to 0
+            while (gap != 0) {
+                for (int i = gap; i < array.length; i++) {
+                    for (int j = i - gap; j >= 0; j -= gap) {
+                        // compare each element at index j with element after gap, and swap accordingly
+                        if (array[j] > array[j + gap]) {
+                            // swap
+                            swap = array[j];
+                            array[j] = array[j + gap];
+                            array[j + gap] = swap;
+                            swapCount++;
+                        } else {
+                            break;
+                        }
+                        System.out.println("\nArray After Inner Iteration " + (++innerCount));
+                        newDisplay(array);
+                    }
+                    System.out.println(YELLOW + "\nArray After Outer Iteration " + RESET + (++outerCount));
+                    newDisplay(array);
                 }
-                System.out.println("\nArray After Inner Iteration " + (innerCount++));
-                newDisplay(nums);
+                totalCount++;
+                gap /= 2;
             }
-            gap /= 2;
-            System.out.println(YELLOW + "\nArray After Outer Iteration " + RESET + (outerCount++));
-            newDisplay(nums);
-            totalItr++;
+            System.out.println("Total Outer Iterations: " + outerCount);
+            System.out.println("Total Inner Iterations: " + innerCount);
+            System.out.println("Total Iterations: " + (innerCount + outerCount + totalCount));
+            System.out.println("Total Swaps: " + swapCount);
         }
-        System.out.println(YELLOW + "\nTotal Iterations: " + totalItr + RESET);
     }
 
     /* ------------To Visually diplay current values in an array------------ */
